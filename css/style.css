@@ -1,0 +1,133 @@
+
+/* CSS Reset */
+*{
+    margin:0rem;
+    padding:0rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    overflow:hidden;
+}
+
+html, body{
+    height: 100%;
+}
+
+.container{
+    background:url('../background image/bg.jpg');
+    height:100%;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    display:flex;
+    flex-direction: column;
+}
+
+.title_container{
+    margin: 2rem 0;
+    padding: 0.5rem;
+    font-size: 4rem;
+    text-align: center;
+    font-weight:bold;
+    text-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.4);
+    transition: transform 0.6s ease-in-out;
+    cursor: pointer;
+}
+
+.title_container:hover{
+    transform: scale(1.1);
+    color : #5e0202;
+}
+
+.body_container{
+    display: flex;
+    flex-direction: row;
+    flex:1;
+}
+
+.common-style{
+    font-size: 2rem;
+    margin: 0.5rem 1rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    width : 25%;
+    justify-content: flex-start;
+    font-weight: bold;
+    text-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.instructions{
+    align-items: center;
+}
+
+#instruction2{
+    padding-top:2rem;
+}
+
+.board_container{
+    margin : 0.5rem;
+    padding : 0.5rem;
+    padding-bottom : 1rem;
+    width : 50%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+#board{
+    
+    /*vmin is the smaller of vh and vw. If vh < vw , then 1vmin = 1vh.
+    similarly , if vw < vh , then 1vmin = 1vw.
+    opposite is true for vmax.*/
+    
+    height:100%;
+    width: 100%;
+    background:linear-gradient(to bottom right, #f1d4a2, #ffa200);
+    border:0.5rem solid black;
+    box-shadow: inset 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.7), 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.7);
+    display:grid;
+    grid-template-rows:repeat(18 , 1fr);
+    grid-template-columns:repeat(18 , 1fr);
+}
+
+.score_container{
+    align-items: flex-start;
+}
+
+#hiscore{
+    padding-top : 1rem;
+}
+
+.head{
+    background : linear-gradient(red , black);
+    border : 1.5px solid red;
+    box-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.7);
+    border-radius : 0.8rem;
+    transform : scale(1.15);
+}
+
+.snakeBody{
+    background : linear-gradient(blue , black);
+    border : 1.5px solid blue;
+    border-radius : 0.8rem;
+    box-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.7);
+}
+
+.food{
+    background : linear-gradient(purple , black);
+    border : 1px solid purple;
+    border-radius : 0.8rem;
+    animation-name : foodGrow;
+    animation-duration : 0.125s;
+    animation-iteration-count : infinite;
+    animation-timing-function : linear;
+    box-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.7);
+}
+
+@keyframes foodGrow{
+    from{
+        transform : scale(1);
+    }
+    to{
+        transform : scale(1.2);
+    }
+}
