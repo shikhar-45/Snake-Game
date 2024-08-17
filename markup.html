@@ -12,22 +12,37 @@
 <body>
     <div class="container">
 
-        <div class="title_container">SNAKE XENXIA</div>
+        <div class="header">
+            <div class="title_container">SNAKE XENXIA</div>
+            <div class="score_container common-style">
+                <div id="scoreCount">SCORE: 0</div>
+                <div id="hiscore">HI SCORE: 0</div>
+            </div>
+        </div>
 
         <div class="body_container">
-            <div class="common-style">
-                <div id="instruction1">USE ARROW KEYS TO CONTROL THE SNAKE</div>
-                <div id="instruction2">PRESS ANY KEY TO PLAY AGAIN</div>
+            <div class="controls-container">
+                <div class="common-style instructions">
+                    <div id="instruction1">USE ARROW KEYS TO CONTROL THE SNAKE</div>
+                    <div id="instruction2">PRESS START BUTTON</div>
+                </div>
+
+                <div class="touch-controls">
+                    <button id="up" class="control-button">UP</button>
+                    <div class="middle-controls">
+                        <button id="left" class="control-button">LEFT</button>
+                        <button id="right" class="control-button">RIGHT</button>
+                    </div>
+                        <button id="down" class="control-button">DOWN</button>
+                </div>
+
+                <button id="start">START</button>
             </div>
 
             <div class="board_container">
                 <div id="board"></div>
             </div>
 
-            <div class="score_container common-style">
-                <div id="scoreCount">SCORE: 0</div>
-                <div id="hiscore">HI SCORE: 0</div>
-            </div>
         </div>
     </div>
     <script src="js/script.js"></script>

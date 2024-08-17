@@ -193,9 +193,32 @@ else {
     hiscore_on_screen.innerHTML = 'HI SCORE: ' + hiscorevalue;
 }
 
-window.requestAnimationFrame(main);
-window.addEventListener('keydown', e => {
+
+let gameStarted = false;
+function startGame(){
+    gameStarted = true;
     music_sound.play();
+    window.requestAnimationFrame(main);
+}
+
+
+
+window.addEventListener('keydown', handleKeydown);
+document.getElementById('start').addEventListener('click', function(){
+
+    this.style.color = '#ffff33';
+    this.style.borderColor = '#ffff33';
+
+    //disabling the button after being clicked.
+    this.disabled = true;
+    startGame();
+});
+
+function handleKeydown(e)
+{
+    //checking whether the game has started or not. if game hasn't started, do nothing.
+    if(!gameStarted)
+        return;         
     // start the game.
     movedInDir = { x: 0, y: 1 };
     move_sound.play();
@@ -227,4 +250,56 @@ window.addEventListener('keydown', e => {
         default:
             break;
     }
+};
+
+//touch controls
+
+document.getElementById('up').addEventListener('click', function(){
+    simulateKeyPress('ArrowUp');
 });
+
+document.getElementById('down').addEventListener('click', function(){
+    simulateKeyPress('ArrowDown');
+});
+
+document.getElementById('left').addEventListener('click', function(){
+    simulateKeyPress('ArrowLeft');
+});
+
+document.getElementById('right').addEventListener('click', function(){
+    simulateKeyPress('ArrowRight');
+});
+
+//function to simulate keyboard key press
+
+function simulateKeyPress(k){
+    const event = new KeyboardEvent('keydown', {key:k});
+    window.dispatchEvent(event);
+}
+
+//changing content of buttons for width lesser than 600px
+
+function updateButtonContent(){
+    const buttons = [
+        { id: "up", desktopText: "UP", mobileText: "U"},
+        { id: "down", desktopText: "DOWN", mobileText: "D"},
+        { id: "left", desktopText: "LEFT", mobileText: "L"},
+        { id: "right", desktopText: "RIGHT", mobileText: "R"},
+        { id: "start", desktopText: "START", mobileText: "GO"},
+    ];
+
+    buttons.forEach(button =>{
+        const btn = document.getElementById(button.id);
+        if(window.innerWidth<=600)
+        {
+            btn.textContent = button.mobileText;
+        }
+        else
+        {
+            btn.textContent = button.desktopText;
+        }
+    });
+}
+
+window.addEventListener("resize", updateButtonContent);
+window.addEventListener("load", updateButtonContent);
