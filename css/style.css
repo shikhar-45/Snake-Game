@@ -131,13 +131,13 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2rem;
-    margin-top: 4rem;
+    margin: 1rem 2rem;
+    /* margin-top: 4rem; */
 }
 
 button {
     width: 5rem;
-    margin: 1rem;
+    /* margin: 1rem; */
     padding: 1rem;
     text-align: center;
     border-radius: 20%;
@@ -229,8 +229,16 @@ button {
 /* media queries */
 
 @media screen and (min-width : 1024px) {
-    .touch-controls {
-        display: none;
+    .container{
+        justify-content: flex-start;
+    }
+
+    #start{
+        position : fixed;
+        bottom : 1rem;
+        width : 5rem;
+        margin-left : 1rem;
+        padding : 0.7rem;
     }
 }
 

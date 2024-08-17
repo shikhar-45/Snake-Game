@@ -13,7 +13,7 @@ const music_sound = new Audio('music/backmusic2.mp3');
 
 //lastPaintTime is the time when screen was last painted.
 let lastPaintTime = 0;
-let speed = 8;
+let speed = 6;
 let score = 0;
 let foodOnBody = true;
 
